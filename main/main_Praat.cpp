@@ -18,6 +18,7 @@
 
 #include "../sys/praat.h"
 #include "../sys/praat_version.h"
+#include "../speechocean/speechocean.h"
 
 static void logo (Graphics graphics) {
 	Graphics_setWindow (graphics, 0.0, 1.0, 0.0, 0.8);
@@ -31,23 +32,30 @@ static void logo (Graphics graphics) {
 	Graphics_text (graphics, 0.575, 0.66, U"\\s{A}");
 	Graphics_text (graphics, 0.628, 0.66, U"\\s{T}");
 	Graphics_setFontSize (graphics, 15.0);
-	Graphics_text (graphics, 0.5, 0.55, U"%%doing phonetics by computer");
+	//Graphics_text (graphics, 0.5, 0.55, U"%%doing phonetics by computer");
+	Graphics_text (graphics, 0.5, 0.55, U"%%SpeechOcean Special Edition");
 	#define xstr(s) str(s)
 	#define str(s) #s
 	Graphics_text (graphics, 0.5, 0.45, U"version " xstr(PRAAT_VERSION_STR));
 	Graphics_setColour (graphics, Melder_BLACK);
 	Graphics_setFont (graphics, kGraphics_font::HELVETICA);
 	Graphics_setFontSize (graphics, 10.0);
-	Graphics_text (graphics, 0.5, 0.20, U"Copyright © 1992–" xstr(PRAAT_YEAR) " by Paul Boersma and David Weenink");
+	//Graphics_text (graphics, 0.5, 0.20, U"Copyright © 1992–" xstr(PRAAT_YEAR) " by Paul Boersma and David Weenink");
+	Graphics_text (graphics, 0.5, 0.20, U"By SuperLucky");
+	Graphics_text (graphics, 0.5, 0.15, U"Orignial Copyright © 1992–" xstr(PRAAT_YEAR) " by Paul Boersma and David Weenink");
 	Graphics_setFontSize (graphics, 10.0);
-	Graphics_text (graphics, 0.5, 0.10, U"Website: praat.org");
+	//Graphics_text (graphics, 0.5, 0.10, U"Website: praat.org");
+	Graphics_text (graphics, 0.5, 0.10, U"Original Website: praat.org");
 }
-
+	
 int main (int argc, char *argv []) {
 	try {
 		praat_setLogo (130.0, 80.0, logo);
-		praat_init (U"Praat", argc, argv);
+		praat_init (U"Praat(SpeechOcean)", argc, argv);
 		INCLUDE_LIBRARY (praat_uvafon_init)
+		//===SpeechOcean Praat Special Begin
+		INCLUDE_LIBRARY (praat_speechocean_init)
+		//===SpeechOcean Praat Special End
 		praat_run ();
 	} catch (MelderError) {
 		Melder_flushError (U"This error message percolated all the way to the top.");   // an attempt to catch Apache errors
