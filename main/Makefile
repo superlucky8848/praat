@@ -7,7 +7,7 @@ CPPFLAGS = -I ../kar -I ../melder -I ../sys -I ../fon
 
 .PHONY: clean
 
-main_*.o: ../sys/praat.h ../sys/praat_version.h ../sys/Graphics.h
+main_*.o: ../sys/praat.h ../sys/praat_version.h ../sys/Graphics.h ../speechocean/speechocean.h
 
 clean:
 	$(RM) main_*.o
