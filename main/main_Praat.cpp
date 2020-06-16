@@ -31,6 +31,7 @@ static void logo (Graphics graphics) {
 	Graphics_text (graphics, 0.510, 0.66, U"\\s{A}");
 	Graphics_text (graphics, 0.575, 0.66, U"\\s{A}");
 	Graphics_text (graphics, 0.628, 0.66, U"\\s{T}");
+	Graphics_text (graphics, 0.680, 0.70, U"\\s{+}");
 	Graphics_setFontSize (graphics, 15.0);
 	//Graphics_text (graphics, 0.5, 0.55, U"%%doing phonetics by computer");
 	Graphics_text (graphics, 0.5, 0.55, U"%%SpeechOcean Special Edition");
@@ -41,7 +42,7 @@ static void logo (Graphics graphics) {
 	Graphics_setFont (graphics, kGraphics_font::HELVETICA);
 	Graphics_setFontSize (graphics, 10.0);
 	//Graphics_text (graphics, 0.5, 0.20, U"Copyright © 1992–" xstr(PRAAT_YEAR) " by Paul Boersma and David Weenink");
-	Graphics_text (graphics, 0.5, 0.20, U"By SuperLucky");
+	Graphics_text (graphics, 0.5, 0.20, U"By shenlong@speechocean.com");
 	Graphics_text (graphics, 0.5, 0.15, U"Orignial Copyright © 1992–" xstr(PRAAT_YEAR) " by Paul Boersma and David Weenink");
 	Graphics_setFontSize (graphics, 10.0);
 	//Graphics_text (graphics, 0.5, 0.10, U"Website: praat.org");
