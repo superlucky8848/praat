@@ -5,7 +5,7 @@ include ../makefile.defs
 
 CPPFLAGS = -I ../kar -I ../melder -I ../sys -I ../dwsys -I ../stat -I ../dwtools -I ../fon
 
-OBJECTS = speechocean.o
+OBJECTS = speechocean.o soTextGridEditor.o
 
 .PHONY: all clean
 
