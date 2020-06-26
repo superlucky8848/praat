@@ -32,6 +32,7 @@ all:
 	$(MAKE) -C gram
 	$(MAKE) -C FFNet
 	$(MAKE) -C artsynth
+	$(MAKE) -C speechocean
 	$(MAKE) -C main main_Praat.o $(ICON)
 	$(LINK) -o $(EXECUTABLE) main/main_Praat.o $(MAIN_ICON) fon/libfon.a \
 		artsynth/libartsynth.a FFNet/libFFNet.a \
@@ -45,6 +46,7 @@ all:
 		external/glpk/libglpk.a \
 		external/clapack/libclapack.a \
 		external/gsl/libgsl.a \
+		speechocean/speechocean.a \
 		$(LIBS)
 
 clean:
@@ -67,6 +69,7 @@ clean:
 	$(MAKE) -C gram clean
 	$(MAKE) -C FFNet clean
 	$(MAKE) -C artsynth clean
+	$(MAKE) -C speechocean clean
 	$(MAKE) -C main clean
 	$(RM) praat
 
