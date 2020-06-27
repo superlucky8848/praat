@@ -652,6 +652,8 @@ static void do_insertIntervalOnTier (TextGridEditor me, int itier) {
 		my selectedTier = itier;
 		FunctionEditor_marksChanged (me, true);
 		Editor_broadcastDataChanged (me);
+
+		SO_LOG(U"Insert Interval on Tire:", itier)
 	} catch (MelderError) {
 		Melder_throw (U"Interval not inserted.");
 	}
