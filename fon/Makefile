@@ -3,7 +3,7 @@
 
 include ../makefile.defs
 
-CPPFLAGS = -I ../kar -I ../melder -I ../sys -I ../dwsys -I ../stat -I ../dwtools -I ../LPC -I ../fon -I ../external/portaudio -I ../external/flac -I ../external/mp3 -I ../external/espeak
+CPPFLAGS = -I ../kar -I ../melder -I ../sys -I ../dwsys -I ../stat -I ../dwtools -I ../LPC -I ../fon -I ../external/portaudio -I ../external/flac -I ../external/mp3 -I ../external/espeak -I ../speechocean
 
 OBJECTS = Transition.o Distributions_and_Transition.o \
    Function.o Sampled.o SampledXY.o Matrix.o Vector.o Polygon.o PointProcess.o \
@@ -54,4 +54,4 @@ libfon.a: $(OBJECTS)
 	$(AR) cq libfon.a $(OBJECTS)
 	$(RANLIB) libfon.a
 
-$(OBJECTS): *.h ../external/portaudio/*.h ../kar/*.h ../melder/*.h ../sys/*.h ../dwsys/*.h ../stat/*.h ../dwtools/*.h ../LPC/*.h ../external/flac/*.h ../external/mp3/mp3.h
+$(OBJECTS): *.h ../external/portaudio/*.h ../kar/*.h ../melder/*.h ../sys/*.h ../dwsys/*.h ../stat/*.h ../dwtools/*.h ../LPC/*.h ../external/flac/*.h ../external/mp3/mp3.h ../speechocean/soTextGridEditor.h

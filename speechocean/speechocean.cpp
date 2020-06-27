@@ -84,12 +84,11 @@ FORM (SoTextGrid_viewAndEditWithLog, U"SoTextGrid: View & Edit with log", nullpt
 	OK
     DO
         FIND_TWO_WITH_IOBJECT (TextGrid, Sound)   // Sound may not be NULL
-        autoSoTextGridEditor editor = SoTextGridEditor_create(ID_AND_FULL_NAME, me, you, true, nullptr, nullptr);
+        autoSoTextGridEditor editor = SoTextGridEditor_create(ID_AND_FULL_NAME, me, you, true, nullptr, nullptr, log_file_name, is_log_time, user_id);
         if (theCurrentPraatApplication -> batch) Melder_throw (U"Cannot view or edit a TextGrid from batch.");
         Editor_setPublicationCallback (editor.get(), cb_SoTextGridEditor_publication);
 		praat_installEditor (editor.get(), IOBJECT);
 		editor.releaseToUser();
-        Melder_information(log_file_name, U",", is_log_time, U",", user_id);
     END
 }
 

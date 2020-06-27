@@ -16,6 +16,7 @@
  * along with this work. If not, see <http://www.gnu.org/licenses/>.
  */
 /* Erez Volk added FLAC support in 2007 */
+/* SuperLucky added SO_LOG macro for log function in SoTextGridEditor*/
 
 #include "TextGridEditor.h"
 #include "EditorM.h"
@@ -38,6 +39,9 @@ Thing_implement (TextGridEditor, TimeSoundAnalysisEditor, 0);
 #include "TextGridEditor_prefs.h"
 #include "prefs_copyToInstance.h"
 #include "TextGridEditor_prefs.h"
+
+// SuperLucky: Import SO_LOG(...) Macro to log if the instance isa SoTextGridEditor
+#include "soTextGridEditor.h"
 
 void structTextGridEditor :: v_info () {
 	TextGridEditor_Parent :: v_info ();
@@ -1696,7 +1700,7 @@ static void do_dragBoundary (TextGridEditor me, double xbegin, integer iClickedT
 	double leftDraggingBoundary = my tmin, rightDraggingBoundary = my tmax;   // initial dragging range
 	bool selectedTier [1000];
 	const double soundY = _TextGridEditor_computeSoundY (me);
-
+	
 	/*
 		Determine the set of selected boundaries and points, and the dragging range.
 	*/
@@ -1858,6 +1862,8 @@ static void do_dragBoundary (TextGridEditor me, double xbegin, integer iClickedT
 	}
 	FunctionEditor_marksChanged (me, true);
 	Editor_broadcastDataChanged (me);
+	
+	SO_LOG(U"Boundary Dragged")
 }
 
 bool structTextGridEditor :: v_click (double xclick, double yWC, bool shiftKeyPressed) {
