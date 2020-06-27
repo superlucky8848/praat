@@ -742,6 +742,8 @@ static void menu_cb_RemovePointOrBoundary (TextGridEditor me, EDITOR_ARGS_DIRECT
 	FunctionEditor_updateText (me);
 	FunctionEditor_redraw (me);
 	Editor_broadcastDataChanged (me);
+
+	SO_LOG(me, U"Boundary Removed")
 }
 
 static void do_movePointOrBoundary (TextGridEditor me, int where) {
