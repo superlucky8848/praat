@@ -653,7 +653,7 @@ static void do_insertIntervalOnTier (TextGridEditor me, int itier) {
 		FunctionEditor_marksChanged (me, true);
 		Editor_broadcastDataChanged (me);
 
-		SO_LOG(U"Insert Interval on Tire:", itier)
+		SO_LOG(me, U"Insert Interval on Tire:", itier)
 	} catch (MelderError) {
 		Melder_throw (U"Interval not inserted.");
 	}
@@ -1279,6 +1279,7 @@ static void gui_text_cb_changed (TextGridEditor me, GuiTextEvent /* event */) {
 				//Melder_casual (U"gui_text_cb_change 5 in editor ", Melder_pointer (me));
 				Editor_broadcastDataChanged (me);
 				//Melder_casual (U"gui_text_cb_change 6 in editor ", Melder_pointer (me));
+				SO_LOG(me, U"Change Interval Text")
 			}
 		} else {
 			const integer selectedPoint = getSelectedPoint (me);
@@ -1865,7 +1866,7 @@ static void do_dragBoundary (TextGridEditor me, double xbegin, integer iClickedT
 	FunctionEditor_marksChanged (me, true);
 	Editor_broadcastDataChanged (me);
 	
-	SO_LOG(U"Boundary Dragged")
+	SO_LOG(me, U"Boundary Dragged")
 }
 
 bool structTextGridEditor :: v_click (double xclick, double yWC, bool shiftKeyPressed) {
@@ -2094,6 +2095,8 @@ void structTextGridEditor :: v_clickSelectionViewer (double xWC, double yWC) {
 
 					FunctionEditor_redraw (this);
 					Editor_broadcastDataChanged (this);
+
+					SO_LOG(this, U"Change Interval Text")
 				}
 			} else {
 				integer selectedPoint = getSelectedPoint (this);
@@ -2147,6 +2150,7 @@ void structTextGridEditor :: v_play (double tmin, double tmax) {
 			Sound_playPart (our d_sound.data, tmin, tmax, theFunctionEditor_playCallback, this);
 		}
 	}
+	Melder_information(U"play!");
 }
 
 void structTextGridEditor :: v_updateText () {

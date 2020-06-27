@@ -30,8 +30,8 @@ autoSoTextGridEditor SoTextGridEditor_create (conststring32 title, TextGrid grid
     bool isLogTime,
     conststring32 userId);
 
-#define SO_LOG(...) \
-    if(!str32cmp(my classInfo -> className, U"SoTextGridEditor")) \
+#define SO_LOG(me, ...) \
+    if(!str32cmp(me -> classInfo -> className, U"SoTextGridEditor")) \
 	{ \
 		SoTextGridEditor editor = (SoTextGridEditor)me; \
         char32 message[512]; \
