@@ -2150,7 +2150,8 @@ void structTextGridEditor :: v_play (double tmin, double tmax) {
 			Sound_playPart (our d_sound.data, tmin, tmax, theFunctionEditor_playCallback, this);
 		}
 	}
-	Melder_information(U"play!");
+
+	SO_LOG(this, U"Play Sound");
 }
 
 void structTextGridEditor :: v_updateText () {
