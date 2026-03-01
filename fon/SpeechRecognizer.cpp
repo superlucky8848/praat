@@ -20,7 +20,7 @@
 #include "Sound.h"
 #include "whisper.h"
 #include "melder.h"
-#include "silero_vad_model_data.h"
+#include "ggml-silero-vad-model-data.h"
 
 #include "oo_DESTROY.h"
 #include "SpeechRecognizer_def.h"
