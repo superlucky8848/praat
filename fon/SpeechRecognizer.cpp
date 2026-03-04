@@ -180,6 +180,9 @@ static void SpeechRecognizer_runWhisper (SpeechRecognizer me, constSound sound, 
 	*/
 	if (whisper_full (my whisperContext.get(), params, samples32.data(), static_cast <int> (sound -> nx)) != 0)
 		Melder_throw (U"Whisper failed to process audio");
+
+	if (Melder_debug == 2001)
+		whisper_print_timings(my whisperContext.get());
 }
 
 static bool endsWithTerminalPunctuation(conststring32 token) {
